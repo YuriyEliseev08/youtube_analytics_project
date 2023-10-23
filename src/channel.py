@@ -1,9 +1,12 @@
 from googleapiclient.discovery import build
 import os
+from dotenv import load_dotenv
+
+load_dotenv()
 
 
 def get_channel(channel_id):
-    api_key: str = os.getenv('YOUTUBEAPIKEY')
+    api_key: str = os.getenv('YT_API_KEY')
     youtube = build('youtube', 'v3', developerKey=api_key)
     channel = youtube.channels().list(id=channel_id, part="snippet, statistics").execute()
     return channel
@@ -19,4 +22,5 @@ class Channel:
 
     def print_info(self) -> None:
         """Выводит в консоль информацию о канале."""
+        print(self.channel_info)
         return self.channel_info
