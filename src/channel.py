@@ -51,3 +51,8 @@ class Channel:
         data['channel_viewCount'] = self.viewCount
         with open(f'channel_name_{channel_name}.json', 'w', encoding='UTF-8') as file:
             json.dump(data, file, indent=2, ensure_ascii=False)
+
+    @staticmethod
+    def get_service():
+        api_key: str = os.getenv('YT_API_KEY')
+        return build('youtube', 'v3', developerKey=api_key)
