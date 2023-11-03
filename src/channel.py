@@ -56,3 +56,39 @@ class Channel:
     def get_service():
         api_key: str = os.getenv('YT_API_KEY')
         return build('youtube', 'v3', developerKey=api_key)
+
+    def __repr__(self):
+        return f"Название канала: {self.title}, ID канала: {self.channel_id}, URL канала: {self.url}"
+
+    def __str__(self):
+        return f"Название канала: {self.title}, Подписчики: {self.subscribers}"
+
+    def __add__(self, other):
+        return self.subscribers + other.subscribers
+    def __sub__(self, other):
+        return self.subscribers - other.subscribers
+
+    def __gt__(self, other):
+        return self.subscribers > other.subscribers
+
+    def __ge__(self, other):
+        return self.subscribers >= other.subscribers
+
+    def __lt__(self, other):
+        return self.subscribers < other.subscribers
+
+    def __le__(self, other):
+        return self.subscribers <= other.subscribers
+
+    def __eq__(self, other):
+        return self.subscribers == other.subscribers
+
+
+
+
+
+
+
+
+
+
