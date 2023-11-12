@@ -28,6 +28,9 @@ class Video:
         self.likeCount = self.video_info['items'][0]['statistics']['likeCount']
         self.video_url = "https://www.youtube.com/watch?=" + self.video_id + '&ab_channel=MoscowPython'
 
+    def __str__(self):
+        return self.video_title
+
 
 class PLVideo(Video):
     def __init__(self, video_id, playlist_id):
